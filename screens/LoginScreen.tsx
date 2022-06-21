@@ -50,13 +50,14 @@ const styles = StyleSheet.create({
        marginBottom:40,
     },
     title:{
-      color:'white',
+      color:'lightblue',
       fontSize: 35,
-      fontWeight:'500',
+      fontWeight:'400',
     },
     subtitle:{
-     color:'white',
+     color:'lightblue',
      fontSize : 20,
+     fontWeight:'300',
     },
     inputContainer: {
         width: '80%',
@@ -75,25 +76,25 @@ const styles = StyleSheet.create({
         marginTop:40,
     },
     button: {
-        backgroundColor:'#819cfd',
+        backgroundColor:'lightblue',
         width:'100%',
         padding:15,
         borderRadius:10,
         alignItems:'center',
     },
     buttonText: {
-        color:'white',
+        color:'#0a052f',
         fontWeight:'700',
         fontSize:16,
     },
     buttonOutline: {
-        backgroundColor:'lightblue',
+        backgroundColor:'#0a052f',
         marginTop:5,
         borderColor:'lightblue',
         borderWidth:3,
     },
     buttonOutlineText: {
-    color:'black',
+    color:'lightblue',
     fontWeight:'700',
     fontSize:16,
     },
