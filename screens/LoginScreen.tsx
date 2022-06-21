@@ -39,7 +39,7 @@ export default LoginScreen
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor:'#0a052f',
+        backgroundColor:'#091c32',
         flex : 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -50,13 +50,13 @@ const styles = StyleSheet.create({
        marginBottom:40,
     },
     title:{
-      color:'lightblue',
+      color:'white',
       fontSize: 35,
-      fontWeight:'400',
+      fontWeight:'500',
     },
     subtitle:{
-     color:'lightblue',
-     fontSize : 20,
+     color:'white',
+     fontSize : 22,
      fontWeight:'300',
     },
     inputContainer: {
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         paddingHorizontal:15,
         paddingVertical:10,
         borderRadius:10,
-        marginTop:5,
+        marginTop:10,
     },
     buttonContainer: {
         width:'60%',
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         fontSize:16,
     },
     buttonOutline: {
-        backgroundColor:'#0a052f',
+        backgroundColor:'#091c32',
         marginTop:5,
         borderColor:'lightblue',
         borderWidth:3,
