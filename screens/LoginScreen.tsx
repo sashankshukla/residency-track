@@ -13,7 +13,7 @@ const LoginScreen:React.FC = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
         if(user){
-            navigator.navigate("Home");
+            navigator.navigate("Main");
         }
     })
     return unsubscribe;
@@ -30,13 +30,13 @@ const LoginScreen:React.FC = () => {
   return (
     <KeyboardAvoidingView style= {styles.container} behavior="padding">
       <View style={styles.headerContainer}>
-        <Text style={styles.title}>ResTrack</Text>
-        <Text style={styles.subtitle}>Physical Presence Tracker</Text>
+        <Text style={styles.title}>Welcome Back!</Text>
+        <Text style={styles.subtitle}>Please sign in or register</Text>
       </View>
       <View style={styles.inputContainer}>
-        <TextInput placeholderTextColor='black' placeholder='email' value={email} 
+        <TextInput placeholderTextColor='lightgray' placeholder='email' value={email} 
         onChangeText={text => setEmail(text)} style = {styles.input}></TextInput>
-         <TextInput placeholderTextColor='black' placeholder='password' value={password} 
+         <TextInput placeholderTextColor='lightgray' placeholder='password' value={password} 
         onChangeText={text => setPassword(text)} secureTextEntry style = {styles.input}></TextInput>
       </View>
 
@@ -62,7 +62,7 @@ export default LoginScreen
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor:'#091c32',
+        backgroundColor:'black',
         flex : 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -70,15 +70,15 @@ const styles = StyleSheet.create({
     headerContainer:{
        justifyContent:'center',
        alignItems:'center',
-       marginBottom:40,
+       marginBottom:25,
     },
     title:{
-      color:'white',
-      fontSize: 35,
+      color:'lightgray',
+      fontSize: 30,
       fontWeight:'500',
     },
     subtitle:{
-     color:'white',
+     color:'gray',
      fontSize : 22,
      fontWeight:'300',
     },
@@ -86,9 +86,10 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     input: {
-        backgroundColor:'white',
+        backgroundColor:'#262a34',
+        color:'lightgray',
         paddingHorizontal:15,
-        paddingVertical:10,
+        paddingVertical:12,
         borderRadius:10,
         marginTop:10,
     },
@@ -99,25 +100,23 @@ const styles = StyleSheet.create({
         marginTop:40,
     },
     button: {
-        backgroundColor:'lightblue',
+        backgroundColor:'#5568fd',
         width:'100%',
         padding:15,
         borderRadius:10,
         alignItems:'center',
     },
     buttonText: {
-        color:'#0a052f',
+        color:'white',
         fontWeight:'700',
         fontSize:16,
     },
     buttonOutline: {
-        backgroundColor:'#eab31a',
+        backgroundColor:'lightgray',
         marginTop:10,
-        borderColor:'#eab31a',
-        borderWidth:3,
     },
     buttonOutlineText: {
-    color:'#091c32',
+    color:'black',
     fontWeight:'700',
     fontSize:16,
     },
