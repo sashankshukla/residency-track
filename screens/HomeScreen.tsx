@@ -12,7 +12,7 @@ const HomeScreen:React.FC = () => {
       <Image style={styles.img} source={require('../assets/icon.png')}/>
       <Text style={styles.text}>ResTrack</Text>
       <TouchableOpacity style={styles.button}onPress={switchScreen}>
-        <Text style={styles.buttonText}>Head to Login</Text>
+        <Text style={styles.buttonText}>Start</Text>
       </TouchableOpacity>
     </View>
   )

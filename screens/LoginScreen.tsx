@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import {auth} from '../firebase-config';
 import { logIn, signUp } from '../controllers/login';
 import { useNavigation } from '@react-navigation/native';
-import {AntDesign,} from '@expo/vector-icons';
+import {AntDesign,SimpleLineIcons} from '@expo/vector-icons';
 
 
 const LoginScreen:React.FC = () => {
@@ -55,8 +55,11 @@ const LoginScreen:React.FC = () => {
                 <Text style={styles.buttonOutlineText}>Register</Text>
             </TouchableOpacity>
       </View>
+      <View>
       <Text style={{color:'lightgrey', marginTop:15,fontSize:15}}>or</Text>
+      </View>
       <View style={styles.iconContainer}>
+          {/* <SimpleLineIcons name='social-google' style={[styles.icons,styles.google]}/> */}
           <AntDesign style={[styles.icons,styles.google]} name='google'></AntDesign>
           <AntDesign style={styles.icons} name='github'></AntDesign>
           <AntDesign style={[styles.icons,styles.twitter]} name='twitter'></AntDesign>
@@ -115,7 +118,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color:'white',
-        fontWeight:'700',
+        fontWeight:'500',
         fontSize:16,
     },
     buttonOutline: {
@@ -124,7 +127,7 @@ const styles = StyleSheet.create({
     },
     buttonOutlineText: {
     color:'black',
-    fontWeight:'700',
+    fontWeight:'500',
     fontSize:16,
     },
     iconContainer :{
@@ -141,6 +144,7 @@ const styles = StyleSheet.create({
         color:'#1b96e8',
     },
     google : {
-        color: '#ffcb2b',
+        color:'#ffcb2b',
+        borderColor:'red',
     }
 });
