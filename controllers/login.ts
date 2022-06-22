@@ -1,9 +1,13 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 interface Info{
     auth:any,
     email:string,
     password:string
+}
+
+interface A{
+    auth:any;
 }
 
 const signUp = (info:Info):void => {
