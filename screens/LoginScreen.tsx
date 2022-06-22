@@ -1,44 +1,26 @@
-import { StyleSheet, Text, KeyboardAvoidingView, View, TextInput, Touchable, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, KeyboardAvoidingView, View, TextInput,TouchableOpacity } from 'react-native'
 import {useState} from 'react'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import {initializeApp} from 'firebase/app';
-import {firebaseConfig} from '../firebase';
-//import {auth} from '../firebase';
+import {auth} from '../firebase-config';
+import { logIn, signUp } from '../controllers/login';
 
-//initializeApp(firebaseConfig);
 
 const LoginScreen:React.FC = () => {
-  const [email,setEmail] = useState<string>('');
-  const [password,setPassword] = useState<string>('');
+  const [email,setEmail] = useState<string>("");
+  const [password,setPassword] = useState<string>("");
 
-//   const signUp = () => {
-//     const auth = getAuth();
-//     createUserWithEmailAndPassword(auth,email, password)
-//         .then((userCredential) => {
-//         const user = userCredential.user;
-//         console.log(user.email);
-//         })
-//         .catch((error) => {
-//         const errorMessage = error.message;
-//         console.log(errorMessage);
-//         });
-//     };
+  const handleSignUp = ():void => {
+    signUp({auth:auth,email:email,password:password});
+  }
 
-//   const logIn = () => {
-//     auth
-//     .createUserWithEmailAndPassword(email,password)
-//     .then(userCredentials => {
-//         const user = userCredentials.user;
-//         console.log(user.email);
-//     })
-//     .catch(err => alert(err.message));
-//   };
+  const handleLogin = ():void => {
+    logIn({auth:auth,email:email,password:password});
+  }
 
   return (
     <KeyboardAvoidingView style= {styles.container} behavior="padding">
       <View style={styles.headerContainer}>
         <Text style={styles.title}>ResTrack</Text>
-        <Text style={styles.subtitle}>Track your physical presence in Canada</Text>
+        <Text style={styles.subtitle}>Physical Presence Tracker</Text>
       </View>
       <View style={styles.inputContainer}>
         <TextInput placeholderTextColor='black' placeholder='email' value={email} 
@@ -49,13 +31,13 @@ const LoginScreen:React.FC = () => {
 
       <View style={styles.buttonContainer}>
             <TouchableOpacity
-               onPress={() => {}}
+               onPress={handleLogin}
                style = {styles.button}
             >
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
             <TouchableOpacity
-               onPress={() => {}}
+               onPress={handleSignUp}
                style = {[styles.button,styles.buttonOutline]}
             >
                 <Text style={styles.buttonOutlineText}>Register</Text>
@@ -119,7 +101,7 @@ const styles = StyleSheet.create({
     },
     buttonOutline: {
         backgroundColor:'#eab31a',
-        marginTop:5,
+        marginTop:10,
         borderColor:'#eab31a',
         borderWidth:3,
     },
