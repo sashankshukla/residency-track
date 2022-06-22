@@ -5,7 +5,6 @@ import { auth } from '../firebase-config';
 
 const HomeScreen:React.FC = () => {
   const navigator = useNavigation();
-
   const signOut = ():void => {
     auth
      .signOut()

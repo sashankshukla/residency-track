@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image,StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 
 const HomeScreen:React.FC = () => {
@@ -9,9 +9,10 @@ const HomeScreen:React.FC = () => {
   }
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>HomeScreen</Text>
-      <TouchableOpacity onPress={switchScreen}>
-        <Text style={styles.text}>Head to Login</Text>
+      <Image style={styles.img} source={require('../assets/icon.png')}/>
+      <Text style={styles.text}>ResTrack</Text>
+      <TouchableOpacity style={styles.button}onPress={switchScreen}>
+        <Text style={styles.buttonText}>Head to Login</Text>
       </TouchableOpacity>
     </View>
   )
@@ -27,7 +28,26 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
    },
+   img : {
+    height : '12%',
+    width : '25%',
+    marginBottom:20,
+   },
    text : {
+    fontSize:34,
+    fontWeight:'200',
     color:'white',
+   },
+   button: {
+    backgroundColor:'#262a34',
+    width:'60%',
+    marginTop:20,
+    padding:15,
+    borderRadius:10,
+    alignItems:'center',
+   },
+   buttonText : {
+    fontSize:20,
+    color:'lightgrey'
    }
 })

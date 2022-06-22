@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react'
 import {auth} from '../firebase-config';
 import { logIn, signUp } from '../controllers/login';
 import { useNavigation } from '@react-navigation/native';
+import {AntDesign,} from '@expo/vector-icons';
 
 
 const LoginScreen:React.FC = () => {
@@ -54,6 +55,12 @@ const LoginScreen:React.FC = () => {
                 <Text style={styles.buttonOutlineText}>Register</Text>
             </TouchableOpacity>
       </View>
+      <Text style={{color:'lightgrey', marginTop:15,fontSize:15}}>or</Text>
+      <View style={styles.iconContainer}>
+          <AntDesign style={[styles.icons,styles.google]} name='google'></AntDesign>
+          <AntDesign style={styles.icons} name='github'></AntDesign>
+          <AntDesign style={[styles.icons,styles.twitter]} name='twitter'></AntDesign>
+      </View>
     </KeyboardAvoidingView>
   )
 }
@@ -94,7 +101,7 @@ const styles = StyleSheet.create({
         marginTop:10,
     },
     buttonContainer: {
-        width:'60%',
+        width:'55%',
         justifyContent:'center',
         alignItems:'center',
         marginTop:40,
@@ -120,4 +127,20 @@ const styles = StyleSheet.create({
     fontWeight:'700',
     fontSize:16,
     },
+    iconContainer :{
+       marginLeft:'5%',
+       marginTop: 18,
+       flexDirection:'row'
+    },
+    icons : {
+        color: 'lightgray',
+        fontSize:30,
+        marginRight : 15,
+    },
+    twitter:{
+        color:'#1b96e8',
+    },
+    google : {
+        color: '#ffcb2b',
+    }
 });

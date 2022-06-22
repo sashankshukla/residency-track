@@ -1,13 +1,11 @@
+import { useNavigation } from '@react-navigation/native';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import {auth} from '../firebase-config';
 
 interface Info{
     auth:any,
     email:string,
     password:string
-}
-
-interface A{
-    auth:any;
 }
 
 const signUp = (info:Info):void => {
@@ -31,5 +29,7 @@ const signUp = (info:Info):void => {
         console.log(err.message);
      })
   };
+
+ 
 
   export {logIn,signUp};
