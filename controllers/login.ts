@@ -1,19 +1,21 @@
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { Alert } from 'react-native';
-
+import {doc,setDoc,collection,addDoc} from '@firebase/firestore';
+import {db} from '../firebase-config';
 
 //auth/wrong-password
 //auth/invalid-email
 //auth/email-already-in-use
 
+// error display
 const getErrorMessage = (err:string):string => {
     if(err == "Firebase: Error (auth/wrong-password).")
        return "Incorrect password"
     else if(err == "Firebase: Error (auth/invalid-email).")
        return "Invalid email";
-    else if(err == "Firebase: Error (email-already-in-use).")
+    else if(err == "Firebase: Error (auth/email-already-in-use).")
        return "This user already exists"
-    else
+
        return "Error. Unable to login"
 }
 
@@ -24,11 +26,20 @@ interface Info{
     password:string
 }
 
+// FIrebase createUser and adds a doc to firestore for user
 const signUp = (info:Info):void => {
     createUserWithEmailAndPassword(info.auth,info.email,info.password)
-    .then(userCredentials => {
+    .then(async userCredentials => {
         const user = userCredentials.user;
         console.log(user.email);
+        const userId = user.uid;
+        try {
+            await setDoc(doc(db, "user-data",userId),{
+            })
+            console.log("Document written");
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
     })
      .catch (err => {
         const errorToDisplay:string = getErrorMessage(err.message);
@@ -38,6 +49,7 @@ const signUp = (info:Info):void => {
 };
 
 
+// login
 const logIn = (info:Info):void => {
 signInWithEmailAndPassword(info.auth,info.email,info.password)
 .then(userCredentials => {
@@ -51,6 +63,7 @@ signInWithEmailAndPassword(info.auth,info.email,info.password)
     })
 };
 
+// signup alerts
 const createTwoButtonAlert = (error:string) =>
 Alert.alert(
     "Error",
