@@ -2,43 +2,40 @@ import {StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { auth } from '../firebase-config';
 import {doc,addDoc,setDoc,getDoc} from "@firebase/firestore";
 import {db} from '../firebase-config';
-import { navigator } from '../App';
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen:React.FC = () => {
-  const signOut = ():void => {
-    auth
-     .signOut()
-     .then(() => {
-       navigator.navigate("Login");
-     })
-     .catch(error => console.log(error.message))
-  }
 
+const navigator = useNavigation();
+const signOut = ():void => {
+  auth
+  .signOut()
+  .then(() => {
+      navigator.navigate("Login");
+  })
+  .catch(error => console.log(error.message))
+}
+const userId:string = auth.currentUser? auth.currentUser.uid : "string";
 
-  // current user for firestore queries
-  const userId:string = auth.currentUser? auth.currentUser.uid : "string";
-
-  const addDate = async ():Promise<void> => {
+const addDate = async ():Promise<void> => {
     //const docRef = doc(db, "user-data", userId);
     await setDoc(doc(db, "user-data", userId), {date:new Date()})
     .then( () => {
-         console.log('succesful');
+        console.log('succesful');
     })
     .catch((err) => console.log(err.message));
-  }
+}
 
-  const viewDate = async ():Promise<void> => {
+const viewDate = async ():Promise<void> => {
     const docRef = doc(db, "user-data", userId);
     const docSnap = await getDoc(docRef);
     if(docSnap.exists()){
-      console.log('data : ' + docSnap.data().date);
+    console.log('data : ' + new Date(docSnap.data().date.seconds*1000));
     }
     else{
-      console.log('doc dont exist');
+    console.log('doc dont exist');
     }
-
-  }
-
+}
 
   return (
     <View style={styles.container}>

@@ -1,11 +1,14 @@
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { Alert } from 'react-native';
-import {doc,setDoc,collection,addDoc} from '@firebase/firestore';
+import {doc,setDoc,collection,getDoc,addDoc} from '@firebase/firestore';
 import {db} from '../firebase-config';
 
 //auth/wrong-password
 //auth/invalid-email
 //auth/email-already-in-use
+
+
+
 
 // error display
 const getErrorMessage = (err:string):string => {

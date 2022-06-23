@@ -1,16 +1,14 @@
+import { useNavigation } from '@react-navigation/native';
 import { Image,StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import { navigator } from '../App';
 
 
 const HomeScreen:React.FC = () => {
-  const switchScreen = () =>{
-     navigator.navigate("Login");
-  }
+  const navigator = useNavigation();
   return (
     <View style={styles.container}>
       <Image style={styles.img} source={require('../assets/icon.png')}/>
       <Text style={styles.text}>ResTrack</Text>
-      <TouchableOpacity style={styles.button}onPress={switchScreen}>
+      <TouchableOpacity style={styles.button}onPress={() => {navigator.navigate("Login")}}>
         <Text style={styles.buttonText}>Start</Text>
       </TouchableOpacity>
     </View>

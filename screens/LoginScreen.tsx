@@ -3,10 +3,11 @@ import {useEffect, useState} from 'react'
 import {auth} from '../firebase-config';
 import { logIn, signUp } from '../controllers/login';
 import {AntDesign} from '@expo/vector-icons';
-import { navigator } from '../App';
+import { useNavigation } from '@react-navigation/native';
 
 
 const LoginScreen:React.FC = () => {
+  const navigator = useNavigation();
   const [email,setEmail] = useState<string>("");
   const [password,setPassword] = useState<string>("");
   
@@ -19,13 +20,8 @@ const LoginScreen:React.FC = () => {
     return unsubscribe;
   },[]);
 
-  const handleSignUp = ():void => {
-    signUp({auth:auth,email:email,password:password});
-  }
-
-  const handleLogin = ():void => {
-    logIn({auth:auth,email:email,password:password});
-  }
+  const handleSignUp = ():void => signUp({auth:auth,email:email,password:password});
+  const handleLogin = ():void => logIn({auth:auth,email:email,password:password});
 
   return (
     <KeyboardAvoidingView style= {styles.container} behavior="padding">
