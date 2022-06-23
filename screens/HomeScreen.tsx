@@ -6,10 +6,11 @@ const HomeScreen:React.FC = () => {
   const navigator = useNavigation();
   return (
     <View style={styles.container}>
-      <Image style={styles.img} source={require('../assets/icon.png')}/>
+      <Image style={styles.img} source={require('../assets/react-icon.png')}/>
       <Text style={styles.text}>ResTrack</Text>
+      <Text style={[styles.text,{fontWeight:'500',fontSize:35,marginVertical:'10%'}]}>Tracking your physical presence made easier</Text>
       <TouchableOpacity style={styles.button}onPress={() => {navigator.navigate("Login")}}>
-        <Text style={styles.buttonText}>Start</Text>
+        <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
     </View>
   )
@@ -22,18 +23,19 @@ const styles = StyleSheet.create({
     backgroundColor:'black',
     color:'white',
     flex:1,
-    justifyContent:'center',
+    justifyContent:'flex-start',
     alignItems:'center',
    },
    img : {
-    height : '12%',
-    width : '25%',
+    height : '30%',
+    width : '70%',
     marginBottom:20,
+    marginTop:'30%',
    },
    text : {
     fontSize:34,
     fontWeight:'200',
-    color:'white',
+    color:'lightgray',
    },
    button: {
     backgroundColor:'#262a34',
@@ -42,6 +44,8 @@ const styles = StyleSheet.create({
     padding:15,
     borderRadius:10,
     alignItems:'center',
+    borderWidth:1,
+    borderColor:'#5dcfef'
    },
    buttonText : {
     fontSize:20,

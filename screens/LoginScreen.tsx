@@ -1,4 +1,4 @@
-import { StyleSheet, Text, KeyboardAvoidingView, View, TextInput,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, KeyboardAvoidingView, View, TextInput,TouchableOpacity, Keyboard } from 'react-native'
 import {useEffect, useState} from 'react'
 import {auth} from '../firebase-config';
 import { logIn, signUp } from '../controllers/login';
@@ -15,13 +15,21 @@ const LoginScreen:React.FC = () => {
     const unsubscribe = auth.onAuthStateChanged(user => {
         if(user){
             navigator.navigate("Main");
+            setEmail("");
+            setPassword("");
+            Keyboard.dismiss();
         }
     })
     return unsubscribe;
   },[]);
 
-  const handleSignUp = ():void => signUp({auth:auth,email:email,password:password});
-  const handleLogin = ():void => logIn({auth:auth,email:email,password:password});
+  const handleSignUp = ():void => {
+    signUp({auth:auth,email:email,password:password});
+  };
+
+  const handleLogin = ():void => {
+    logIn({auth:auth,email:email,password:password});
+  }
 
   return (
     <KeyboardAvoidingView style= {styles.container} behavior="padding">
