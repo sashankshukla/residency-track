@@ -1,4 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {StyleSheet} from 'react-native';
 import LoginScreen from './screens/LoginScreen';
@@ -6,6 +6,8 @@ import MainScreen from './screens/MainScreen';
 import HomeScreen from './screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
+export const navigator = useNavigation();
+
 
 const App = () => {
   return (

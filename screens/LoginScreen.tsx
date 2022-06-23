@@ -2,14 +2,13 @@ import { StyleSheet, Text, KeyboardAvoidingView, View, TextInput,TouchableOpacit
 import {useEffect, useState} from 'react'
 import {auth} from '../firebase-config';
 import { logIn, signUp } from '../controllers/login';
-import { useNavigation } from '@react-navigation/native';
-import {AntDesign,SimpleLineIcons} from '@expo/vector-icons';
+import {AntDesign} from '@expo/vector-icons';
+import { navigator } from '../App';
 
 
 const LoginScreen:React.FC = () => {
   const [email,setEmail] = useState<string>("");
   const [password,setPassword] = useState<string>("");
-  const navigator = useNavigation();
   
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {

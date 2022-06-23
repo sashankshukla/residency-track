@@ -1,9 +1,8 @@
-import { useNavigation } from '@react-navigation/native'
 import { Image,StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { navigator } from '../App';
 
 
 const HomeScreen:React.FC = () => {
-  const navigator = useNavigation();
   const switchScreen = () =>{
      navigator.navigate("Login");
   }
