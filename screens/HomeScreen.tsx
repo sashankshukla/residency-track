@@ -27,8 +27,9 @@ const styles = StyleSheet.create({
     alignItems:'center',
    },
    img : {
-    height : '30%',
-    width : '70%',
+    tintColor:'#5568fd',
+    height : '32%',
+    width : '80%',
     marginBottom:20,
     marginTop:'30%',
    },
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     borderRadius:10,
     alignItems:'center',
     borderWidth:1,
-    borderColor:'#5dcfef'
+    borderColor:'#5568fd'
    },
    buttonText : {
     fontSize:20,

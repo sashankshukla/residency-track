@@ -23,13 +23,9 @@ const LoginScreen:React.FC = () => {
     return unsubscribe;
   },[]);
 
-  const handleSignUp = ():void => {
-    signUp({auth:auth,email:email,password:password});
-  };
+  const handleSignUp = ():void => signUp({auth:auth,email:email,password:password});
 
-  const handleLogin = ():void => {
-    logIn({auth:auth,email:email,password:password});
-  }
+  const handleLogin = ():void => logIn({auth:auth,email:email,password:password});
 
   return (
     <KeyboardAvoidingView style= {styles.container} behavior="padding">
