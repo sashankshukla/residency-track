@@ -12,14 +12,11 @@ import {db} from '../firebase-config';
 
 // error display
 const getErrorMessage = (err:string):string => {
-    if(err == "Firebase: Error (auth/wrong-password).")
-       return "Incorrect password"
-    else if(err == "Firebase: Error (auth/invalid-email).")
-       return "Invalid email";
+    if(err == "Firebase: Error (auth/invalid-email)." || err == "Firebase: Error (auth/wrong-password).")
+       return "Invalid email or password";
     else if(err == "Firebase: Error (auth/email-already-in-use).")
        return "This user already exists"
-
-       return "Error. Unable to login"
+    return "Error. Unable to login"
 }
 
 
