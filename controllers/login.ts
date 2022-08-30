@@ -7,9 +7,6 @@ import {db} from '../firebase-config';
 //auth/invalid-email
 //auth/email-already-in-use
 
-
-
-
 // error display
 const getErrorMessage = (err:string):string => {
     if(err == "Firebase: Error (auth/invalid-email)." || err == "Firebase: Error (auth/wrong-password).")
